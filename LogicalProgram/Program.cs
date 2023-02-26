@@ -2,52 +2,28 @@
 {
 
 
-    public static class FPerfectNumber
+    public static class PrimeNumber
     {
         static void Main(string[] args)
         {
-            int n, i, sum;
-            int mn, mx;
-
-            Console.Write("\n\n");
-            Console.Write("Find perfect numbers within a given number of range:\n");
-            Console.Write("------------------------------------------------------");
-            Console.Write("\n\n");
-
-            Console.Write("Input the starting range or number : ");
-            mn = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Input the ending range of number : ");
-            mx = Convert.ToInt32(Console.ReadLine());
-            Console.Write("The Perfect numbers within the given range : ");
-            for (n = mn; n <= mx; n++)
+            int n, i, m = 0, flag = 0;
+            Console.Write("Enter the Number to check Prime: ");
+            n = int.Parse(Console.ReadLine());
+            m = n / 2;
+            for (i = 2; i <= m; i++)
             {
-                i = 1;
-                sum = 0;
-                while (i < n)
+                if (n % i == 0)
                 {
-                    if (n % i == 0)
-                        sum += i;
-                    i++;
+                    Console.WriteLine("Number {0} is not Prime.", n);
+                    flag = 1;
+                    break;
                 }
-                if (sum == n)
-                    Console.Write("{0} ", n);
-
-
             }
-            Console.Write("\n");
-            int num;
-            Console.WriteLine(" enter the perfect number for above result");
-            num = Convert.ToInt32(Console.ReadLine());
-            Console.Write("{0} = 1 ", num);
-            for (int divisor = 2; divisor < num; divisor++)
-            {
-                if ((num % divisor) == 0)
-                    Console.Write(" + {0}", divisor);
-
-            }
-            Console.WriteLine("  \n");
+            if (flag == 0)
+                Console.WriteLine("Number  {0} is Prime.", n);
 
         }
     }
+
 }
 
