@@ -2,22 +2,28 @@
 {
 
 
-    public static class ReverseNumber
+    public static class CouponNumber
     {
         static void Main(string[] args)
         {
-            int n, rev = 0, rem;
-            Console.WriteLine("Enter Number");
-            Console.WriteLine("\n");
-            n = Convert.ToInt32(Console.ReadLine());
-
-            while (n != 0)
+            int distinct = 0, count = 0, coupon_no;
+            Console.Write("Enter the number of distinct coupons:");
+            coupon_no = Convert.ToInt32(Console.ReadLine());
+            bool[] is_collected = new bool[coupon_no];
+            while (distinct < coupon_no)
             {
-                rem = n % 10;
-                rev = rev * 10 + rem;
-                n /= 10;
+                Random random = new Random();
+                int option = random.Next(1, 1000);
+                int new_coupon = (int)(random.NextDouble() * coupon_no);
+                count++;
+                if (!is_collected[new_coupon])
+                {
+                    distinct++;
+                    is_collected[new_coupon] = true;
+                }
             }
-            Console.WriteLine("Reversed Number is : {0}", rev);
+
+            Console.WriteLine("Total random number of  distinct coupon : " + count);
 
         }
 
