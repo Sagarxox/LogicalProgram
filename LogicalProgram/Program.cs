@@ -1,32 +1,52 @@
-﻿namespace Logical_Programming_Problems
+﻿using System.Diagnostics;
+
+namespace Logical_Programming_Problems
 {
 
 
-    public static class CouponNumber
+    public static class StopWatch
     {
         static void Main(string[] args)
         {
-            int distinct = 0, count = 0, coupon_no;
-            Console.Write("Enter the number of distinct coupons:");
-            coupon_no = Convert.ToInt32(Console.ReadLine());
-            bool[] is_collected = new bool[coupon_no];
-            while (distinct < coupon_no)
+            int input1;
+
+            Stopwatch stopw = new Stopwatch();
+
+
+            Console.Write(" \t 1-Start Timer\n \t 2-Stop Timer\n");
+            Console.WriteLine("Please enter '1' to start timer whenever you want");
+            input1 = Convert.ToInt32(Console.ReadLine());
+            if (input1 == 1)
             {
-                Random random = new Random();
-                int option = random.Next(1, 1000);
-                int new_coupon = (int)(random.NextDouble() * coupon_no);
-                count++;
-                if (!is_collected[new_coupon])
-                {
-                    distinct++;
-                    is_collected[new_coupon] = true;
-                }
+                stopw.Start();
+
+            }
+            else
+            {
+                throw (new InvalidOperationException("Please Start the timer with 1"));
             }
 
-            Console.WriteLine("Total random number of  distinct coupon : " + count);
+
+
+
+            Console.WriteLine("Please enter '2' to stop the timer whenever you want");
+            input1 = Convert.ToInt32(Console.ReadLine());
+            if (input1 == 2)
+            {
+                stopw.Stop();
+
+            }
+
+            else
+            {
+                throw (new InvalidOperationException("Please end the timer with 2"));
+            }
+
+            Console.WriteLine(" Time elapsed: {0} ", stopw.Elapsed);
+
+
 
         }
-
     }
 
 }
