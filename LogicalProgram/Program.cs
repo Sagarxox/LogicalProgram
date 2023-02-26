@@ -2,27 +2,25 @@
 {
 
 
-    public static class PrimeNumber
+    public static class ReverseNumber
     {
         static void Main(string[] args)
         {
-            int n, i, m = 0, flag = 0;
-            Console.Write("Enter the Number to check Prime: ");
-            n = int.Parse(Console.ReadLine());
-            m = n / 2;
-            for (i = 2; i <= m; i++)
+            int n, rev = 0, rem;
+            Console.WriteLine("Enter Number");
+            Console.WriteLine("\n");
+            n = Convert.ToInt32(Console.ReadLine());
+
+            while (n != 0)
             {
-                if (n % i == 0)
-                {
-                    Console.WriteLine("Number {0} is not Prime.", n);
-                    flag = 1;
-                    break;
-                }
+                rem = n % 10;
+                rev = rev * 10 + rem;
+                n /= 10;
             }
-            if (flag == 0)
-                Console.WriteLine("Number  {0} is Prime.", n);
+            Console.WriteLine("Reversed Number is : {0}", rev);
 
         }
+
     }
 
 }
